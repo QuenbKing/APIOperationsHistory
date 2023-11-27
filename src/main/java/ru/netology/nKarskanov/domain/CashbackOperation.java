@@ -48,7 +48,7 @@ public class CashbackOperation extends Operation {
 
     @Override
     public int hashCode() {
-        final int prime = 31;
+        final int prime = 35;
         int res = 1;
         res = prime * res + getId();
         res = prime * res + getSum();

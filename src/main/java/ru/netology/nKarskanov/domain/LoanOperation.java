@@ -1,32 +1,34 @@
 package ru.netology.nKarskanov.domain;
 
-public class LoanOperation extends Operation{
+import java.util.Objects;
+
+public class LoanOperation extends Operation {
     private int loanId;
 
-    public void setLoanId(int loanId){
+    public LoanOperation(Integer id, Integer sum, Currency currency, String merchant, Integer customerId, int loanId) {
+        super(id, sum, currency, merchant, customerId);
         this.loanId = loanId;
     }
 
-    public int getLoanId(){
+    public int getLoanId() {
         return loanId;
     }
 
-    public LoanOperation(int id, int sum, String currency, String merchant, int loanId){
-        super(id, sum, currency, merchant);
+    public void setLoanId(int loanId) {
         this.loanId = loanId;
     }
 
     @Override
-    public String toString(){
-        return  "Operation{ id = " + getId()  +
+    public String toString() {
+        return "Operation{ id = " + getId() +
                 ", loandID: " + loanId +
-                ", sum: "  + getSum() +
+                ", sum: " + getSum() +
                 ", currency: " + getCurrency() +
                 ", merchant: " + getMerchant() + "}";
     }
 
     @Override
-    public boolean equals(Object o){
+    public boolean equals(Object o) {
         if (o == this) {
             return true;
         }
@@ -36,9 +38,9 @@ public class LoanOperation extends Operation{
         }
 
         LoanOperation operation = (LoanOperation) o;
-        return getId() == operation.getId()
-                && (getSum() == operation.getSum()
-                &&  loanId == operation.loanId
+        return Objects.equals(getId(), operation.getId())
+                && (Objects.equals(getSum(), operation.getSum())
+                && loanId == operation.loanId
                 && (getCurrency() != null && getCurrency().equals(operation.getCurrency()))
                 && (getMerchant() != null && getMerchant().equals(operation.getMerchant())));
     }
@@ -60,7 +62,7 @@ public class LoanOperation extends Operation{
         System.out.println("Твой id: " + getId() + "." +
                 " Id совершённого займа: " + loanId + "." +
                 " Сумма займа " + getSum() +
-                  getCurrency() + "." +
+                getCurrency() + "." +
                 " С какой целью вы производите займ: " + getMerchant() + ".");
     }
 }

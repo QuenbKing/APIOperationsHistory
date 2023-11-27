@@ -1,9 +1,9 @@
 package ru.netology.nKarskanov.Excpetions;
 
-public class CustomerOperationOutOfBoundException extends OperationRuntimeException{
-    public static final String MESSAGE = "Exception while trying to save operation %s for customer %s";
-    private int customerId;
-    private int operationId;
+public class CustomerOperationOutOfBoundException extends OperationRuntimeException {
+    public static final String EXCEPTION_MESSAGE = "Exception while trying to save operation %s for customer %s";
+    private final int customerId;
+    private final int operationId;
 
     public CustomerOperationOutOfBoundException(int customerId, int operationId) {
         super();
@@ -13,6 +13,6 @@ public class CustomerOperationOutOfBoundException extends OperationRuntimeExcept
 
     @Override
     public String getMessage() {
-        return MESSAGE.formatted(operationId, customerId);
+        return EXCEPTION_MESSAGE.formatted(operationId, customerId);
     }
 }
